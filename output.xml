@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2025-01-03T20:54:14.628160" rpa="false" schemaversion="5">
+<suite id="s1" name="Po" source="c:\Iterasys\Exercicio13\tests\web\po">
+<suite id="s1-s1" name="Selecionar Passagem Po" source="c:\Iterasys\Exercicio13\tests\web\po\selecionar_passagem_po.robot">
+<test id="s1-s1-t1" name="Escolher passagem" line="7">
+<kw name="Preencher origem" owner="home_page">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-01-03T20:54:15.238815" level="INFO">Typing text 'css="form-inline"' into text field 'css="form-inline"'.</msg>
+<msg time="2025-01-03T20:54:15.238815" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg time="2025-01-03T20:54:15.238815" level="FAIL">No browser is open.</msg>
+<arg>${select_departure_city}</arg>
+<arg>${origem}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2025-01-03T20:54:15.238815" elapsed="0.013986">No browser is open.</status>
+</kw>
+<arg>${select_departure_city}</arg>
+<status status="FAIL" start="2025-01-03T20:54:15.235138" elapsed="0.017663">No browser is open.</status>
+</kw>
+<kw name="Preencher destino" owner="home_page">
+<arg>${select_destination_city}</arg>
+<status status="NOT RUN" start="2025-01-03T20:54:15.252801" elapsed="0.000000"/>
+</kw>
+<kw name="Clicar no botao comprar" owner="home_page">
+<status status="NOT RUN" start="2025-01-03T20:54:15.252801" elapsed="0.000000"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<arg>css=container</arg>
+<arg>Flights from Paris to Buenos Aires:</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="NOT RUN" start="2025-01-03T20:54:15.252801" elapsed="0.000000"/>
+</kw>
+<kw name="Clicar no botão escolher voo" owner="reserve_page">
+<status status="NOT RUN" start="2025-01-03T20:54:15.252801" elapsed="0.000000"/>
+</kw>
+<kw name="Clicar no botao comprar" owner="home_page">
+<status status="NOT RUN" start="2025-01-03T20:54:15.252801" elapsed="0.000000"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<arg>css=container.hero-unit</arg>
+<arg>Thank you for your purchase today!</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="NOT RUN" start="2025-01-03T20:54:15.252801" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-01-03T20:54:15.225497" elapsed="0.027304">No browser is open.</status>
+</test>
+<status status="FAIL" start="2025-01-03T20:54:14.676575" elapsed="0.591896"/>
+</suite>
+<status status="FAIL" start="2025-01-03T20:54:14.640431" elapsed="0.628040"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Po">Po</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Selecionar Passagem Po">Po.Selecionar Passagem Po</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
