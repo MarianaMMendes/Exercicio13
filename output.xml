@@ -1,63 +1,685 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2025-01-03T20:54:14.628160" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.12.2 on win32)" generated="2025-01-04T10:22:31.348753" rpa="false" schemaversion="5">
 <suite id="s1" name="Po" source="c:\Iterasys\Exercicio13\tests\web\po">
-<suite id="s1-s1" name="Selecionar Passagem Po" source="c:\Iterasys\Exercicio13\tests\web\po\selecionar_passagem_po.robot">
-<test id="s1-s1-t1" name="Escolher passagem" line="7">
+<kw name="Obter Data e Hora" owner="base_page" type="SETUP">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-01-04T10:22:31.765451" level="INFO">${date} = 2025-01-04 10:22:31.765</msg>
+<var>${date}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-01-04T10:22:31.765451" elapsed="0.010453"/>
+</kw>
+<kw name="Convert Date" owner="DateTime">
+<msg time="2025-01-04T10:22:31.781648" level="INFO">${date} = 2025.01.04_10.22.31</msg>
+<var>${date}</var>
+<arg>${date}</arg>
+<arg>result_format=%Y.%m.%d_%H.%M.%S</arg>
+<doc>Converts between supported `date formats`.</doc>
+<status status="PASS" start="2025-01-04T10:22:31.775904" elapsed="0.005744"/>
+</kw>
+<kw name="Set Global Variable" owner="BuiltIn">
+<msg time="2025-01-04T10:22:31.784006" level="INFO">${date} = 2025.01.04_10.22.31</msg>
+<msg time="2025-01-04T10:22:31.784006" level="INFO">${date} = None</msg>
+<var>${date}</var>
+<arg>${date}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="PASS" start="2025-01-04T10:22:31.781648" elapsed="0.002358"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:31.765451" elapsed="0.018555"/>
+</kw>
+<suite id="s1-s1" name="Selecionar Passagem Po Ddt" source="c:\Iterasys\Exercicio13\tests\web\po\selecionar_passagem_po_ddt.robot">
+<test id="s1-s1-t1" name="TC001" line="7">
+<kw name="Abrir navegador" owner="base_page" type="SETUP">
+<kw name="Register Keyword To Run On Failure" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:31.862331" level="INFO">Tirar Screenshot will be run on failure.</msg>
+<arg>Tirar Screenshot</arg>
+<doc>Sets the keyword to execute, when a SeleniumLibrary keyword fails.</doc>
+<status status="PASS" start="2025-01-04T10:22:31.862331" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:31.864868" level="INFO">Opening browser 'Chrome' to base url 'https://www.blazedemo.com'.</msg>
+<arg>url=${url}</arg>
+<arg>browser=${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-04T10:22:31.862331" elapsed="2.682532"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-04T10:22:34.544863" elapsed="0.035238"/>
+</kw>
+<kw name="Set Browser Implicit Wait" owner="SeleniumLibrary">
+<arg>10000ms</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-01-04T10:22:34.580101" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=input.btn.btn-primary</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-04T10:22:34.580101" elapsed="0.047540"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:31.860325" elapsed="2.767316"/>
+</kw>
+<kw name="Selecionar passagem">
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:35.203972" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC001/1-%20Home%20page.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC001/1-%20Home%20page.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-01-04T10:22:35.203972" level="INFO">c:\Iterasys\Exercicio13\.venv\Lib\site-packages\selenium\webdriver\remote\webdriver.py:843: UserWarning: name used for saved screenshot does not match file type. It should end with a `.png` extension
+  return self.get_screenshot_as_file(filename)</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:22:34.631210" elapsed="0.574002"/>
+</kw>
+<arg>1- Home page</arg>
+<status status="PASS" start="2025-01-04T10:22:34.631210" elapsed="0.574603"/>
+</kw>
 <kw name="Preencher origem" owner="home_page">
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-01-03T20:54:15.238815" level="INFO">Typing text 'css="form-inline"' into text field 'css="form-inline"'.</msg>
-<msg time="2025-01-03T20:54:15.238815" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg time="2025-01-03T20:54:15.238815" level="FAIL">No browser is open.</msg>
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:35.207818" level="INFO">Selecting options from selection list 'css=[name="fromPort"]' by value Boston.</msg>
 <arg>${select_departure_city}</arg>
 <arg>${origem}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="FAIL" start="2025-01-03T20:54:15.238815" elapsed="0.013986">No browser is open.</status>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-01-04T10:22:35.205813" elapsed="0.198387"/>
 </kw>
-<arg>${select_departure_city}</arg>
-<status status="FAIL" start="2025-01-03T20:54:15.235138" elapsed="0.017663">No browser is open.</status>
+<arg>${origem}</arg>
+<status status="PASS" start="2025-01-04T10:22:35.205813" elapsed="0.198387"/>
 </kw>
 <kw name="Preencher destino" owner="home_page">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:35.408235" level="INFO">Selecting options from selection list 'css=[name="toPort"]' by value Rome.</msg>
 <arg>${select_destination_city}</arg>
-<status status="NOT RUN" start="2025-01-03T20:54:15.252801" elapsed="0.000000"/>
+<arg>${destino}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-01-04T10:22:35.408235" elapsed="0.091935"/>
+</kw>
+<arg>${destino}</arg>
+<status status="PASS" start="2025-01-04T10:22:35.404200" elapsed="0.095970"/>
+</kw>
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:35.650883" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC001/2%20-%20Destino%20escolhido.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC001/2%20-%20Destino%20escolhido.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:22:35.500170" elapsed="0.155763"/>
+</kw>
+<arg>2 - Destino escolhido</arg>
+<status status="PASS" start="2025-01-04T10:22:35.500170" elapsed="0.155763"/>
 </kw>
 <kw name="Clicar no botao comprar" owner="home_page">
-<status status="NOT RUN" start="2025-01-03T20:54:15.252801" elapsed="0.000000"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:35.655933" level="INFO">Clicking button 'css=input.btn.btn-primary'.</msg>
+<arg>${btn_purchase}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-04T10:22:35.655933" elapsed="0.435446"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:35.655933" elapsed="0.435446"/>
 </kw>
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<arg>css=container</arg>
-<arg>Flights from Paris to Buenos Aires:</arg>
+<msg time="2025-01-04T10:22:36.092138" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:22:36.096164" level="INFO">Verifying element 'css=h3' contains exact text 'Flights from Boston to Rome:'.</msg>
+<arg>${titulo_secao}</arg>
+<arg>Flights from ${origem} to ${destino}:</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="NOT RUN" start="2025-01-03T20:54:15.252801" elapsed="0.000000"/>
+<status status="PASS" start="2025-01-04T10:22:36.092138" elapsed="0.091509"/>
 </kw>
-<kw name="Clicar no botão escolher voo" owner="reserve_page">
-<status status="NOT RUN" start="2025-01-03T20:54:15.252801" elapsed="0.000000"/>
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:36.469581" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC001/3%20-%20Passagem%20escolhida.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC001/3%20-%20Passagem%20escolhida.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:22:36.183647" elapsed="0.285934"/>
+</kw>
+<arg>3 - Passagem escolhida</arg>
+<status status="PASS" start="2025-01-04T10:22:36.183647" elapsed="0.285934"/>
+</kw>
+<kw name="Clicar no botao escolher voo" owner="reserve_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:36.475757" level="INFO">Clicking button 'css=input.btn.btn-small'.</msg>
+<arg>${btn_choose}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-04T10:22:36.475757" elapsed="0.452155"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:36.469581" elapsed="0.458331"/>
 </kw>
 <kw name="Clicar no botao comprar" owner="home_page">
-<status status="NOT RUN" start="2025-01-03T20:54:15.252801" elapsed="0.000000"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:36.932768" level="INFO">Clicking button 'css=input.btn.btn-primary'.</msg>
+<arg>${btn_purchase}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-04T10:22:36.932768" elapsed="0.966282"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:36.927912" elapsed="0.972431"/>
 </kw>
 <kw name="Element Text Should Be" owner="SeleniumLibrary">
-<arg>css=container.hero-unit</arg>
+<msg time="2025-01-04T10:22:37.900343" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:22:37.904710" level="INFO">Verifying element 'css=h1' contains exact text 'Thank you for your purchase today!'.</msg>
+<arg>${titulo_secao_confirmation}</arg>
 <arg>Thank you for your purchase today!</arg>
 <doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
-<status status="NOT RUN" start="2025-01-03T20:54:15.252801" elapsed="0.000000"/>
+<status status="PASS" start="2025-01-04T10:22:37.900343" elapsed="0.073798"/>
 </kw>
-<status status="FAIL" start="2025-01-03T20:54:15.225497" elapsed="0.027304">No browser is open.</status>
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:38.115343" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC001/4-%20Confirma%C3%A7%C3%A3o.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC001/4-%20Confirma%C3%A7%C3%A3o.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:22:37.974141" elapsed="0.141708"/>
+</kw>
+<arg>4- Confirmação</arg>
+<status status="PASS" start="2025-01-04T10:22:37.974141" elapsed="0.141708"/>
+</kw>
+<arg>Boston</arg>
+<arg>Rome</arg>
+<status status="PASS" start="2025-01-04T10:22:34.627641" elapsed="3.488208"/>
+</kw>
+<kw name="Fechar navegador" owner="base_page" type="TEARDOWN">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-04T10:22:38.619060" level="INFO">Slept 500 milliseconds.</msg>
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-04T10:22:38.118596" elapsed="0.500464"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-04T10:22:38.619060" elapsed="2.315836"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:38.118596" elapsed="2.816300"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:31.858315" elapsed="9.076581"/>
 </test>
-<status status="FAIL" start="2025-01-03T20:54:14.676575" elapsed="0.591896"/>
+<test id="s1-s1-t2" name="TC002" line="8">
+<kw name="Abrir navegador" owner="base_page" type="SETUP">
+<kw name="Register Keyword To Run On Failure" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:40.943796" level="INFO">Tirar Screenshot will be run on failure.</msg>
+<arg>Tirar Screenshot</arg>
+<doc>Sets the keyword to execute, when a SeleniumLibrary keyword fails.</doc>
+<status status="PASS" start="2025-01-04T10:22:40.943796" elapsed="0.002009"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:40.945805" level="INFO">Opening browser 'Chrome' to base url 'https://www.blazedemo.com'.</msg>
+<arg>url=${url}</arg>
+<arg>browser=${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-04T10:22:40.945805" elapsed="2.617724"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-04T10:22:43.563529" elapsed="0.041720"/>
+</kw>
+<kw name="Set Browser Implicit Wait" owner="SeleniumLibrary">
+<arg>10000ms</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-01-04T10:22:43.607754" elapsed="0.004009"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=input.btn.btn-primary</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-04T10:22:43.611763" elapsed="0.042366"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:40.940438" elapsed="2.718097"/>
+</kw>
+<kw name="Selecionar passagem">
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:44.195862" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC002/1-%20Home%20page.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC002/1-%20Home%20page.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:22:43.658535" elapsed="0.537327"/>
+</kw>
+<arg>1- Home page</arg>
+<status status="PASS" start="2025-01-04T10:22:43.658535" elapsed="0.539334"/>
+</kw>
+<kw name="Preencher origem" owner="home_page">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:44.199877" level="INFO">Selecting options from selection list 'css=[name="fromPort"]' by value San Diego.</msg>
+<arg>${select_departure_city}</arg>
+<arg>${origem}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-01-04T10:22:44.199877" elapsed="0.145527"/>
+</kw>
+<arg>${origem}</arg>
+<status status="PASS" start="2025-01-04T10:22:44.197869" elapsed="0.147535"/>
+</kw>
+<kw name="Preencher destino" owner="home_page">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:44.349421" level="INFO">Selecting options from selection list 'css=[name="toPort"]' by value Berlin.</msg>
+<arg>${select_destination_city}</arg>
+<arg>${destino}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-01-04T10:22:44.347411" elapsed="0.101641"/>
+</kw>
+<arg>${destino}</arg>
+<status status="PASS" start="2025-01-04T10:22:44.347411" elapsed="0.101641"/>
+</kw>
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:44.611068" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC002/2%20-%20Destino%20escolhido.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC002/2%20-%20Destino%20escolhido.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:22:44.451573" elapsed="0.159495"/>
+</kw>
+<arg>2 - Destino escolhido</arg>
+<status status="PASS" start="2025-01-04T10:22:44.449052" elapsed="0.162016"/>
+</kw>
+<kw name="Clicar no botao comprar" owner="home_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:44.611068" level="INFO">Clicking button 'css=input.btn.btn-primary'.</msg>
+<arg>${btn_purchase}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-04T10:22:44.611068" elapsed="0.466561"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:44.611068" elapsed="0.466561"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:45.078402" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:22:45.083133" level="INFO">Verifying element 'css=h3' contains exact text 'Flights from San Diego to Berlin:'.</msg>
+<arg>${titulo_secao}</arg>
+<arg>Flights from ${origem} to ${destino}:</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-01-04T10:22:45.078402" elapsed="0.336883"/>
+</kw>
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:45.633685" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC002/3%20-%20Passagem%20escolhida.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC002/3%20-%20Passagem%20escolhida.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:22:45.423724" elapsed="0.209961"/>
+</kw>
+<arg>3 - Passagem escolhida</arg>
+<status status="PASS" start="2025-01-04T10:22:45.415285" elapsed="0.218400"/>
+</kw>
+<kw name="Clicar no botao escolher voo" owner="reserve_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:45.637201" level="INFO">Clicking button 'css=input.btn.btn-small'.</msg>
+<arg>${btn_choose}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-04T10:22:45.636197" elapsed="0.571816"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:45.633685" elapsed="0.574328"/>
+</kw>
+<kw name="Clicar no botao comprar" owner="home_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:46.210304" level="INFO">Clicking button 'css=input.btn.btn-primary'.</msg>
+<arg>${btn_purchase}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-04T10:22:46.210304" elapsed="0.568992"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:46.208013" elapsed="0.571283"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:46.779296" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:22:46.783483" level="INFO">Verifying element 'css=h1' contains exact text 'Thank you for your purchase today!'.</msg>
+<arg>${titulo_secao_confirmation}</arg>
+<arg>Thank you for your purchase today!</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-01-04T10:22:46.779296" elapsed="0.053227"/>
+</kw>
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:47.005192" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC002/4-%20Confirma%C3%A7%C3%A3o.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC002/4-%20Confirma%C3%A7%C3%A3o.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:22:46.837347" elapsed="0.167845"/>
+</kw>
+<arg>4- Confirmação</arg>
+<status status="PASS" start="2025-01-04T10:22:46.837347" elapsed="0.174120"/>
+</kw>
+<arg>San Diego</arg>
+<arg>Berlin</arg>
+<status status="PASS" start="2025-01-04T10:22:43.658535" elapsed="3.352932"/>
+</kw>
+<kw name="Fechar navegador" owner="base_page" type="TEARDOWN">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-04T10:22:47.518025" level="INFO">Slept 500 milliseconds.</msg>
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-04T10:22:47.011467" elapsed="0.506558"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-04T10:22:47.518025" elapsed="2.355816"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:47.011467" elapsed="2.862374"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:40.940438" elapsed="8.933403"/>
+</test>
+<test id="s1-s1-t3" name="TC003" line="9">
+<kw name="Abrir navegador" owner="base_page" type="SETUP">
+<kw name="Register Keyword To Run On Failure" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:49.883567" level="INFO">Tirar Screenshot will be run on failure.</msg>
+<arg>Tirar Screenshot</arg>
+<doc>Sets the keyword to execute, when a SeleniumLibrary keyword fails.</doc>
+<status status="PASS" start="2025-01-04T10:22:49.883567" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:49.883567" level="INFO">Opening browser 'Chrome' to base url 'https://www.blazedemo.com'.</msg>
+<arg>url=${url}</arg>
+<arg>browser=${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-04T10:22:49.883567" elapsed="2.594583"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-04T10:22:52.478150" elapsed="0.039974"/>
+</kw>
+<kw name="Set Browser Implicit Wait" owner="SeleniumLibrary">
+<arg>10000ms</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-01-04T10:22:52.518124" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=input.btn.btn-primary</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-04T10:22:52.518124" elapsed="0.034206"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:49.880951" elapsed="2.671379"/>
+</kw>
+<kw name="Selecionar passagem">
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:53.079798" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC003/1-%20Home%20page.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC003/1-%20Home%20page.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:22:52.552330" elapsed="0.527468"/>
+</kw>
+<arg>1- Home page</arg>
+<status status="PASS" start="2025-01-04T10:22:52.552330" elapsed="0.527468"/>
+</kw>
+<kw name="Preencher origem" owner="home_page">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:53.079798" level="INFO">Selecting options from selection list 'css=[name="fromPort"]' by value Boston.</msg>
+<arg>${select_departure_city}</arg>
+<arg>${origem}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-01-04T10:22:53.079798" elapsed="0.146749"/>
+</kw>
+<arg>${origem}</arg>
+<status status="PASS" start="2025-01-04T10:22:53.079798" elapsed="0.146749"/>
+</kw>
+<kw name="Preencher destino" owner="home_page">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:53.234517" level="INFO">Selecting options from selection list 'css=[name="toPort"]' by value Berlin.</msg>
+<arg>${select_destination_city}</arg>
+<arg>${destino}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-01-04T10:22:53.226547" elapsed="0.095765"/>
+</kw>
+<arg>${destino}</arg>
+<status status="PASS" start="2025-01-04T10:22:53.226547" elapsed="0.095765"/>
+</kw>
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:53.453207" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC003/2%20-%20Destino%20escolhido.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC003/2%20-%20Destino%20escolhido.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:22:53.322312" elapsed="0.130895"/>
+</kw>
+<arg>2 - Destino escolhido</arg>
+<status status="PASS" start="2025-01-04T10:22:53.322312" elapsed="0.130895"/>
+</kw>
+<kw name="Clicar no botao comprar" owner="home_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:53.453207" level="INFO">Clicking button 'css=input.btn.btn-primary'.</msg>
+<arg>${btn_purchase}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-04T10:22:53.453207" elapsed="0.346471"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:53.453207" elapsed="0.348477"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:53.801684" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:22:53.805202" level="INFO">Verifying element 'css=h3' contains exact text 'Flights from Boston to Berlin:'.</msg>
+<arg>${titulo_secao}</arg>
+<arg>Flights from ${origem} to ${destino}:</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-01-04T10:22:53.801684" elapsed="0.098657"/>
+</kw>
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:54.135435" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC003/3%20-%20Passagem%20escolhida.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC003/3%20-%20Passagem%20escolhida.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:22:53.900341" elapsed="0.235094"/>
+</kw>
+<arg>3 - Passagem escolhida</arg>
+<status status="PASS" start="2025-01-04T10:22:53.900341" elapsed="0.235094"/>
+</kw>
+<kw name="Clicar no botao escolher voo" owner="reserve_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:54.141503" level="INFO">Clicking button 'css=input.btn.btn-small'.</msg>
+<arg>${btn_choose}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-04T10:22:54.141503" elapsed="0.430511"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:54.135435" elapsed="0.436579"/>
+</kw>
+<kw name="Clicar no botao comprar" owner="home_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:54.572014" level="INFO">Clicking button 'css=input.btn.btn-primary'.</msg>
+<arg>${btn_purchase}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-04T10:22:54.572014" elapsed="0.508576"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:54.572014" elapsed="0.509600"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:55.081614" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:22:55.085047" level="INFO">Verifying element 'css=h1' contains exact text 'Thank you for your purchase today!'.</msg>
+<arg>${titulo_secao_confirmation}</arg>
+<arg>Thank you for your purchase today!</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-01-04T10:22:55.081614" elapsed="0.056514"/>
+</kw>
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:55.285182" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC003/4-%20Confirma%C3%A7%C3%A3o.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC003/4-%20Confirma%C3%A7%C3%A3o.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:22:55.138128" elapsed="0.147054"/>
+</kw>
+<arg>4- Confirmação</arg>
+<status status="PASS" start="2025-01-04T10:22:55.138128" elapsed="0.147054"/>
+</kw>
+<arg>Boston</arg>
+<arg>Berlin</arg>
+<status status="PASS" start="2025-01-04T10:22:52.552330" elapsed="2.732852"/>
+</kw>
+<kw name="Fechar navegador" owner="base_page" type="TEARDOWN">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-04T10:22:55.789411" level="INFO">Slept 500 milliseconds.</msg>
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-04T10:22:55.288927" elapsed="0.500484"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-04T10:22:55.789411" elapsed="2.297602"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:55.288927" elapsed="2.798086"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:49.880951" elapsed="8.206062"/>
+</test>
+<test id="s1-s1-t4" name="TC004" line="10">
+<kw name="Abrir navegador" owner="base_page" type="SETUP">
+<kw name="Register Keyword To Run On Failure" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:58.091689" level="INFO">Tirar Screenshot will be run on failure.</msg>
+<arg>Tirar Screenshot</arg>
+<doc>Sets the keyword to execute, when a SeleniumLibrary keyword fails.</doc>
+<status status="PASS" start="2025-01-04T10:22:58.091689" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:22:58.095600" level="INFO">Opening browser 'Chrome' to base url 'https://www.blazedemo.com'.</msg>
+<arg>url=${url}</arg>
+<arg>browser=${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-01-04T10:22:58.091689" elapsed="2.597329"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-01-04T10:23:00.689018" elapsed="0.037871"/>
+</kw>
+<kw name="Set Browser Implicit Wait" owner="SeleniumLibrary">
+<arg>10000ms</arg>
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<status status="PASS" start="2025-01-04T10:23:00.726889" elapsed="0.005490"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=input.btn.btn-primary</arg>
+<arg>${timeout}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-01-04T10:23:00.733628" elapsed="0.032906"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:58.091689" elapsed="2.674845"/>
+</kw>
+<kw name="Selecionar passagem">
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:23:01.320344" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC004/1-%20Home%20page.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC004/1-%20Home%20page.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:23:00.770567" elapsed="0.549777"/>
+</kw>
+<arg>1- Home page</arg>
+<status status="PASS" start="2025-01-04T10:23:00.768559" elapsed="0.551785"/>
+</kw>
+<kw name="Preencher origem" owner="home_page">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:23:01.336000" level="INFO">Selecting options from selection list 'css=[name="fromPort"]' by value Paris.</msg>
+<arg>${select_departure_city}</arg>
+<arg>${origem}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-01-04T10:23:01.320344" elapsed="0.072855"/>
+</kw>
+<arg>${origem}</arg>
+<status status="PASS" start="2025-01-04T10:23:01.320344" elapsed="0.072855"/>
+</kw>
+<kw name="Preencher destino" owner="home_page">
+<kw name="Select From List By Value" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:23:01.395203" level="INFO">Selecting options from selection list 'css=[name="toPort"]' by value Cairo.</msg>
+<arg>${select_destination_city}</arg>
+<arg>${destino}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<status status="PASS" start="2025-01-04T10:23:01.393199" elapsed="0.110356"/>
+</kw>
+<arg>${destino}</arg>
+<status status="PASS" start="2025-01-04T10:23:01.393199" elapsed="0.110356"/>
+</kw>
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:23:01.643935" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC004/2%20-%20Destino%20escolhido.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC004/2%20-%20Destino%20escolhido.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:23:01.503555" elapsed="0.146078"/>
+</kw>
+<arg>2 - Destino escolhido</arg>
+<status status="PASS" start="2025-01-04T10:23:01.503555" elapsed="0.146078"/>
+</kw>
+<kw name="Clicar no botao comprar" owner="home_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:23:01.649633" level="INFO">Clicking button 'css=input.btn.btn-primary'.</msg>
+<arg>${btn_purchase}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-04T10:23:01.649633" elapsed="0.393711"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:23:01.649633" elapsed="0.394295"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:23:02.043928" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:23:02.046529" level="INFO">Verifying element 'css=h3' contains exact text 'Flights from Paris to Cairo:'.</msg>
+<arg>${titulo_secao}</arg>
+<arg>Flights from ${origem} to ${destino}:</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-01-04T10:23:02.044566" elapsed="0.097028"/>
+</kw>
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:23:02.404181" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC004/3%20-%20Passagem%20escolhida.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC004/3%20-%20Passagem%20escolhida.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:23:02.141594" elapsed="0.262587"/>
+</kw>
+<arg>3 - Passagem escolhida</arg>
+<status status="PASS" start="2025-01-04T10:23:02.141594" elapsed="0.262587"/>
+</kw>
+<kw name="Clicar no botao escolher voo" owner="reserve_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:23:02.404181" level="INFO">Clicking button 'css=input.btn.btn-small'.</msg>
+<arg>${btn_choose}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-04T10:23:02.404181" elapsed="0.442262"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:23:02.404181" elapsed="0.442262"/>
+</kw>
+<kw name="Clicar no botao comprar" owner="home_page">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:23:02.848449" level="INFO">Clicking button 'css=input.btn.btn-primary'.</msg>
+<arg>${btn_purchase}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-01-04T10:23:02.846443" elapsed="0.515503"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:23:02.846443" elapsed="0.517507"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:23:03.363950" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:23:03.366567" level="INFO">Verifying element 'css=h1' contains exact text 'Thank you for your purchase today!'.</msg>
+<arg>${titulo_secao_confirmation}</arg>
+<arg>Thank you for your purchase today!</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-01-04T10:23:03.363950" elapsed="0.056865"/>
+</kw>
+<kw name="Tirar Screenshot" owner="base_page">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-01-04T10:23:03.578282" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/blazedemo/2025.01.04_10.22.31/TC004/4-%20Confirma%C3%A7%C3%A3o.jpg"&gt;&lt;img src="screenshots/blazedemo/2025.01.04_10.22.31/TC004/4-%20Confirma%C3%A7%C3%A3o.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-01-04T10:23:03.420815" elapsed="0.157467"/>
+</kw>
+<arg>4- Confirmação</arg>
+<status status="PASS" start="2025-01-04T10:23:03.420815" elapsed="0.157467"/>
+</kw>
+<arg>Paris</arg>
+<arg>Cairo</arg>
+<status status="PASS" start="2025-01-04T10:23:00.768559" elapsed="2.811730"/>
+</kw>
+<kw name="Fechar navegador" owner="base_page" type="TEARDOWN">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-01-04T10:23:04.080927" level="INFO">Slept 500 milliseconds.</msg>
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-01-04T10:23:03.580289" elapsed="0.500638"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-01-04T10:23:04.080927" elapsed="2.316992"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:23:03.580289" elapsed="2.817630"/>
+</kw>
+<status status="PASS" start="2025-01-04T10:22:58.091689" elapsed="8.306230"/>
+</test>
+<status status="PASS" start="2025-01-04T10:22:31.784006" elapsed="34.621371"/>
 </suite>
-<status status="FAIL" start="2025-01-03T20:54:14.640431" elapsed="0.628040"/>
+<status status="PASS" start="2025-01-04T10:22:31.358587" elapsed="35.048693"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Po">Po</stat>
-<stat pass="0" fail="1" skip="0" id="s1-s1" name="Selecionar Passagem Po">Po.Selecionar Passagem Po</stat>
+<stat pass="4" fail="0" skip="0" id="s1" name="Po">Po</stat>
+<stat pass="4" fail="0" skip="0" id="s1-s1" name="Selecionar Passagem Po Ddt">Po.Selecionar Passagem Po Ddt</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-01-04T10:22:36.092138" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:22:37.900343" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:22:45.078402" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:22:46.779296" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:22:53.801684" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:22:55.081614" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:23:02.043928" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
+<msg time="2025-01-04T10:23:03.363950" level="WARN">Keyword 'Element Text Should Be' found both from a custom library 'SeleniumLibrary' and a standard library 'XML'. The custom keyword is used. To select explicitly, and to get rid of this warning, use either 'SeleniumLibrary.Element Text Should Be' or 'XML.Element Text Should Be'.</msg>
 </errors>
 </robot>

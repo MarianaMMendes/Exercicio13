@@ -1,7 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
 *** Variables ***
-${btn_comprar}    css= btn.btn-small
+${btn_comprar}    css=input.btn.btn-small
 
 *** Keywords ***
 

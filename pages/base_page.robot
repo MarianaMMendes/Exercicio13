@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library     DateTime
+Library    DateTime
 
 
 Resource    confirmation.robot
@@ -20,7 +20,7 @@ Abrir navegador
     Open Browser    url=${url}    browser=${browser}
     Maximize Browser Window
     Set Browser Implicit Wait    10000ms
-    Wait Until Element Is Visible    css=btn.btn-primary    ${timeout}
+    Wait Until Element Is Visible    css=input.btn.btn-primary    ${timeout}
 
 Fechar navegador
     Sleep    500ms
@@ -28,10 +28,10 @@ Fechar navegador
 
 Obter Data e Hora
 
-    ${date} = Get Current DateTime
-    ${date} = Convert Data ${date}    result_format=%Y.%m.%d_%H.%M.%S 
+    ${date} =    Get Current Date
+    ${date} =    Convert Date    ${date}    result_format=%Y.%m.%d_%H.%M.%S 
     ${date}    Set Global Variable    ${date}
 
 Tirar Screenshot
     [Arguments]    ${screenshot_name}
-    Capture Page Screenshot     screenshot/blazedemo/${date}/${TEST_NAME}/{screenshot_name}
+    Capture Page Screenshot    screenshots/blazedemo/${date}/${TEST_NAME}/${screenshot_name}.jpg
